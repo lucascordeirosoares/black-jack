@@ -1,0 +1,97 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0d1e15;
+    user-select: none;
+}
+
+.font-serif-title {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Feltro da Mesa de Cassino */
+.casino-felt {
+    background: radial-gradient(circle at center, #1e4d35 0%, #0d2b1d 75%, #05140d 100%);
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+}
+
+/* Moldura de Madeira VIP */
+.wooden-border {
+    border: 12px solid #2d1808;
+    border-image: linear-gradient(135deg, #42230d 0%, #1d0e04 50%, #42230d 100%) 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 15px rgba(0,0,0,0.9);
+}
+
+/* Estilo da Carta de Baralho */
+.card {
+    width: 80px;
+    height: 116px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35), inset 0 0 2px rgba(0,0,0,0.1);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    animation: cardDeal 0.35s ease-out forwards;
+}
+
+@media (min-width: 640px) {
+    .card {
+        width: 96px;
+        height: 140px;
+        border-radius: 10px;
+    }
+}
+
+/* Verso da Carta */
+.card-back {
+    background: repeating-linear-gradient(
+        45deg,
+        #b91c1c,
+        #b91c1c 8px,
+        #991b1b 8px,
+        #991b1b 16px
+    );
+    border: 4px solid #ffffff;
+}
+
+@keyframes cardDeal {
+    0% {
+        opacity: 0;
+        transform: translateY(-60px) scale(0.6) rotate(-10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+}
+
+/* Fichas de Aposta */
+.chip {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 4px dashed rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.chip:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.5);
+}
+
+.chip:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.chip-10 { background: radial-gradient(circle, #2563eb 60%, #1d4ed8 100%); }
+.chip-25 { background: radial-gradient(circle, #dc2626 60%, #b91c1c 100%); }
+.chip-50 { background: radial-gradient(circle, #16a34a 60%, #15803d 100%); }
+.chip-100 { background: radial-gradient(circle, #1e293b 60%, #0f172a 100%); border-color: #f59e0b; }
